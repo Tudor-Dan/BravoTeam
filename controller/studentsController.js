@@ -6,6 +6,11 @@ const getAllStudents = () => {
     display.printData(students, "Students Table:");
 }
 
+const numbersOfStudents = () => {
+    const students = dataManager.readData("data.json");
+    display.printMessage(`Total number of students: ${students.length}`)
+}
+
 const hasChosen = () => {
     const userOption = display.getInput("Please enter a number: ");
     if (userOption === "1") {
@@ -16,6 +21,8 @@ const hasChosen = () => {
         display.printMessage("'Update student' not implemented yet.", true);
     } else if (userOption === "4") {
         display.printMessage("'Delete student' not implemented yet.", true);
+    } else if (userOption === "5") {
+        numbersOfStudents();
     } else if (userOption === "0") {
         return false;
     } else {
@@ -25,7 +32,7 @@ const hasChosen = () => {
 }
 
 const handleSubmenu = () => {
-    const optionsArray = ["Exit submenu", "List students", "Add a new student", "Update student", "Delete student"];
+    const optionsArray = ["Exit submenu", "List students", "Add a new student", "Update student", "Delete student", "Total number of Students"];
     display.printMenu("Student Classes Submenu", optionsArray);
 }
 
